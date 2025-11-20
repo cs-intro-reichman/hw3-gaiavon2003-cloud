@@ -33,7 +33,7 @@ public class Anagram {
 		String str1new = preProcess(str1);
 		String str2new = preProcess(str2);
 		int i = 0;
-		boolean check = str1new.length() == str2.length();
+		boolean check = str1new.length() == str2new.length();
 		while (0 < str1new.length() && check) {
 			char c = str1new.charAt(0);
 			i = 0;
