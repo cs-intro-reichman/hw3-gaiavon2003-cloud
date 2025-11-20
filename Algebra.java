@@ -79,7 +79,7 @@ public class Algebra {
 		}
 		int g = 1;
 		for (int y = 1; y < n; y++) {
-			g = times(x, g);
+			g = times(g, x);
 		}
 
 		return g;
@@ -88,19 +88,26 @@ public class Algebra {
 	// Returns the integer part of x1 / x2
 	public static int div(int x1, int x2) {
 		// Replace the following statement with your code
-		int i = 1;
-		int stepes = 0;
-		int result = times(i, x2);
-		while (result <= x1) {
-			stepes++;
-			i++;
-			result = times(i, x2);
+		int absx1 = x1;
+		int absx2 = x2;
+		if ( x1 < 0 ) {
+			absx1 = minus(0, x1);
+		}
+		if (x2 <0 ) {
+			absx2 = minus(0, x2);
 
 		}
-		if ((x1 < 0 && x2 > 0) || (x2 < 0 && x1 > 0)) {
-			return minus(0, stepes);
+
+		int res = 0;
+		int absSum = 0;
+		while (plus(absSum, absx2) <= absx1) {
+			absSum = plus(absSum, absx2);
+			res++;
 		}
-		return stepes;
+		if ((x1 < 0 && x2 > 0) || (x1 > 0 && x2 < 0)) {
+			return minus(0, res);
+		}
+		return res;
 	}
 
 	// Returns x1 % x2
