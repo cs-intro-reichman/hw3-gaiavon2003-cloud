@@ -77,7 +77,7 @@ public class Algebra {
 		if (n == 0) {
 			return 1;
 		}
-		int g = 1;
+		int g = x;
 		for (int y = 1; y < n; y++) {
 			g = times(g, x);
 		}
