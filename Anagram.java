@@ -87,7 +87,7 @@ public class Anagram {
 		// Replace the following statement with your code
 		String newStr = "";
 		String tempStr = str;
-		while (tempStr.length() < 0) {
+		while (tempStr.length() > 0) {
 			int randomIndex = (int) (Math.random() * (tempStr.length()));
 			char randomChar = tempStr.charAt(randomIndex);
 			newStr += randomChar;
