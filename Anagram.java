@@ -30,21 +30,21 @@ public class Anagram {
 	// Returns true if the two given strings are anagrams, false otherwise.
 	public static boolean isAnagram(String str1, String str2) {
 		// Replace the following statement with your code
-		String str1new =  preProcess(str1);
-		String str2new = preProcess (str2);
+		String str1new = preProcess(str1);
+		String str2new = preProcess(str2);
 		int i = 0;
-		boolean check = str1new.length()== str2.length();
-		while (0 < str1new.length() && check ) {
+		boolean check = str1new.length() == str2.length();
+		while (0 < str1new.length() && check) {
 			char c = str1new.charAt(0);
-			i=0;
-			while (i< str2new.length() && c !=str2new.charAt(i)) {
-				i++;	
+			i = 0;
+			while (i < str2new.length() && c != str2new.charAt(i)) {
+				i++;
 			}
-			if (i < str2new.length()){
-				str1new = str1new.substring(1,str1new.length());
-				str2new = str2new.substring(0, i) +str2new.substring(i + 1, str2new.length());
+			if (i < str2new.length()) {
+				str1new = str1new.substring(1, str1new.length());
+				str2new = str2new.substring(0, i) + str2new.substring(i + 1, str2new.length());
 				check = true;
-			}else {
+			} else {
 				check = false;
 			}
 
@@ -59,7 +59,7 @@ public class Anagram {
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
 	public static String preProcess(String str) {
 		// Replace the following statement with your code
-		String strOut = " ";
+		String strOut = "";
 		for (int i = 0; i < str.length(); i++) {
 			char c = str.charAt(i);
 			if ((c >= 'A') && ((c <= 'Z'))) {
@@ -72,7 +72,7 @@ public class Anagram {
 		String newstr = "";
 		for (int i = 0; i < strOut.length(); i++) {
 			char ch = strOut.charAt(i);
-			if ((ch >= 97) && (ch <= 122)) {
+			if ((ch >= 'a') && (ch <= 'z')) {
 				newstr += ch;
 			}
 		}
@@ -87,12 +87,12 @@ public class Anagram {
 		// Replace the following statement with your code
 		String newStr = "";
 		String tempStr = str;
-		while (tempStr.length() < 0 ) {
+		while (tempStr.length() < 0) {
 			int randomIndex = (int) (Math.random() * (tempStr.length()));
 			char randomChar = tempStr.charAt(randomIndex);
 			newStr += randomChar;
-			tempStr = tempStr.substring(0, randomIndex)+ tempStr.substring(randomIndex+1);
-			
+			tempStr = tempStr.substring(0, randomIndex) + tempStr.substring(randomIndex + 1);
+
 		}
 		return newStr;
 	}
